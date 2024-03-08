@@ -3,7 +3,8 @@ import openai
 import streamlit as st
 import time
 
-assistant_id = 'asst_yWGysjcUdjex88NauUKul9Bb'
+assistant_id = st.secrets["assistant_id"]
+thread_id = st.secrets["thread_id"]
 
 with st.sidebar:
     st.link_button("더 좋은 컨텐츠를 위해 후원하기", "https://toss.me/kimfl")
@@ -12,8 +13,8 @@ with st.sidebar:
     st.markdown(iframe_html, unsafe_allow_html=True)
     st.info("이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.")
     
-    openai_api_key = st.text_input("OpenAI API KEY", type="password", value="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")
-    thread_id = st.text_input("Thread ID", value='thread_R3qOC2SlUvnTWkYUZ3TS2LvH')
+    openai_api_key = st.text_input("OpenAI API KEY", type="password", value="")
+    thread_id = st.text_input("Thread ID", value='thread_id')
     thread_make_btn = st.button("Create a new thread")
 
     if thread_make_btn:
